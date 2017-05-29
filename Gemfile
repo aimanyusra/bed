@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Facebook login gems
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bootstrap_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
