@@ -1,0 +1,1 @@
+$('#clearance').after('<p><%= @user.errors.full_messages %></p>')

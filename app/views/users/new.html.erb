@@ -1,15 +1,21 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-offset-4"> 
+      <div id="clearance" class="sign-up">
+        <h2><%= t(".title") %></h2>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
+        <%= bootstrap_form_for @user, remote: true do |form| %>
+          <%= render partial: '/users/form', object: form %>
 
-    <div class="submit-field">
-      <%= form.submit "Submit", class:"btn btn-primary" %>
+          <div class="submit-field">
+            <%= form.submit "Submit", class:"btn btn-primary" %>
+          </div>
+
+          <div class="other-links">
+            <%= link_to t(".sign_in"), sign_in_path %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
+  </div>
 </div>
