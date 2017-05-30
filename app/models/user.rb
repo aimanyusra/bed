@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	include Clearance::User
 
+	has_many :listings, :dependent => :destroy
 	has_many :authentications, :dependent => :destroy
 	# validates :email, presence: true, uniqueness: true
 	# validates :password, presence: true

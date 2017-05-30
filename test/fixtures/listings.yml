@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyString
-  price: MyString
-  type: 
-  guests: 1
   user: one
+  description: MyString
+  address: MyString
+  num_of_bedrooms: MyString
+  num_of_guests: 1
+  name: MyString
 
 two:
-  name: MyString
-  address: MyString
-  price: MyString
-  type: 
-  guests: 1
   user: two
+  description: MyString
+  address: MyString
+  num_of_bedrooms: MyString
+  num_of_guests: 1
+  name: MyString
