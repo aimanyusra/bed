@@ -10,18 +10,19 @@
 # Seed Users
 user = {}
 user['password'] = 'asdf'
+gender = ['male','female']
 # user['password_confirmation'] = 'asdf'
 
-# ActiveRecord::Base.transaction do
-#   20.times do 
-#     user['first_name'] = Faker::Name.first_name 
-#     user['last_name'] = Faker::Name.last_name
-#     user['email'] = Faker::Internet.email
-#     user['gender'] = rand(1..2)
-#     user['age'] = (Date.today - Faker::Date.between(50.years.ago, Date.today)) / 365
-#     User.create(user)
-#   end
-# end 
+ActiveRecord::Base.transaction do
+  20.times do 
+    user['first_name'] = Faker::Name.first_name 
+    user['last_name'] = Faker::Name.last_name
+    user['email'] = Faker::Internet.email
+    user['gender'] = gender.sample
+    user['age'] = (Date.today - Faker::Date.between(50.years.ago, Date.today)) / 365
+    User.create(user)
+  end
+end 
 
 # Seed Listings
 listing = {}
