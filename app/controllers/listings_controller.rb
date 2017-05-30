@@ -4,7 +4,8 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    # @listings = Listing.all
+    @listings = Listing.order(:name).page params[:page]
   end
 
   # GET /listings/1

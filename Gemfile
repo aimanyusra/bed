@@ -39,6 +39,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap_form'
 gem 'faker'
+gem 'kaminari' # pagination gem
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

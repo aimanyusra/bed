@@ -10,6 +10,7 @@
 # Seed Users
 user = {}
 user['password'] = 'asdf'
+gender = ['male','female']
 # user['password_confirmation'] = 'asdf'
 
 ActiveRecord::Base.transaction do
@@ -17,7 +18,7 @@ ActiveRecord::Base.transaction do
     user['first_name'] = Faker::Name.first_name 
     user['last_name'] = Faker::Name.last_name
     user['email'] = Faker::Internet.email
-    user['gender'] = rand(1..2)
+    user['gender'] = gender.sample
     user['age'] = (Date.today - Faker::Date.between(50.years.ago, Date.today)) / 365
     User.create(user)
   end
