@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Verified</th>
       <th>Description</th>
       <th>Address</th>
       <th>Num of bedrooms</th>
@@ -19,6 +20,12 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.user.first_name %></td>
+        <% if listing.verified? %>
+        <!-- <td><%= listing.verified %></td> -->
+          <td><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+        <% else %>
+          <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+        <% end %>
         <td><%= listing.description %></td>
         <td><%= listing.address %></td>
         <td><%= listing.num_of_bedrooms %></td>
