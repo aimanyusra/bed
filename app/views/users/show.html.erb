@@ -5,3 +5,6 @@
   <%= current_user.first_name %> <%= current_user.last_name %>
 </p>
 
+<%= image_tag @user.avatar %>
+
+<%= link_to 'Edit', edit_user_path %> | <%= link_to 'Back', users_path %>

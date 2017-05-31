@@ -1,7 +1,10 @@
 class Listing < ApplicationRecord
-  belongs_to :user
 
-  paginates_per 10
+	mount_uploaders :photos, PhotoUploader
+	serialize :photos, Array
+	belongs_to :user
 
-  enum verified: [:unverified, :verified]
+	paginates_per 10
+
+	enum verified: [:unverified, :verified]
 end
