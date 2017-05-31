@@ -9,6 +9,9 @@ class User < ApplicationRecord
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 
+	# you can also explicitly define enum as:  enum access_level: [:employee => 0, :company_admin => 1, :super_admin => 2}
+  	enum access_level: [:customer, :moderator, :superadmin]
+
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
 		byebug

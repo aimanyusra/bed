@@ -1,6 +1,19 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
+
+  def verify
+    @listings = Listing.find(params[:listing_id])
+    @listings.verified!
+    redirect_to :back
+  end  
+
+  def unverify
+    @listings = Listing.find(params[:listing_id])
+    @listings.unverified!
+    redirect_to :back
+  end
+  
   # GET /listings
   # GET /listings.json
   def index
