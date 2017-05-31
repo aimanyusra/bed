@@ -70,7 +70,7 @@ class UsersController < Clearance::UsersController
   # end
 
   def user_params
-  	params.require(:user).permit(:first_name, :last_name, :age, :email, :password, :gender, :avatar)
+  	params.require(:user).permit(:first_name, :last_name, :age, :email, :password, :gender, :avatar, :remove_avatar)
   end
   # def user_params
   #   params[Clearance.configuration.user_parameter] || Hash.new

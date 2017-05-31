@@ -41,6 +41,8 @@ gem 'bootstrap_form'
 gem 'faker'
 gem 'kaminari' # pagination gem
 gem 'carrierwave', '~> 1.0' # photo uploading gem
+gem 'mini_magick'
+# gem 'rmagick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
