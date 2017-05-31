@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @listing.user %>
+  <strong>Owner:</strong>
+  <%= @listing.user.first_name %> <%= @listing.user.last_name %>
 </p>
 
 <p>
@@ -30,5 +30,7 @@
   <%= @listing.name %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+<% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
+  <%= link_to 'Edit', edit_listing_path(@listing) %> |
+<% end %>
+  <%= link_to 'Back', listings_path %>

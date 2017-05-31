@@ -40,6 +40,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap_form'
 gem 'faker'
 gem 'kaminari' # pagination gem
+gem 'carrierwave', '~> 1.0' # photo uploading gem
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
