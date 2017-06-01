@@ -1,43 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-6 col-sm-offset-3">
+            <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @listing.user.first_name %> <%= @listing.user.last_name %>
-</p>
+            <p>
+              <strong>Owner:</strong>
+              <%= @listing.user.first_name %> <%= @listing.user.last_name %>
+            </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
+            <p>
+              <strong>Description:</strong>
+              <%= @listing.description %>
+            </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @listing.address %>
-</p>
+            <p>
+              <strong>Address:</strong>
+              <%= @listing.address %>
+            </p>
 
-<p>
-  <strong>Num of bedrooms:</strong>
-  <%= @listing.num_of_bedrooms %>
-</p>
+            <p>
+              <strong>Num of bedrooms:</strong>
+              <%= @listing.num_of_bedrooms %>
+            </p>
 
-<p>
-  <strong>Num of guests:</strong>
-  <%= @listing.num_of_guests %>
-</p>
+            <p>
+              <strong>Num of guests:</strong>
+              <%= @listing.num_of_guests %>
+            </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
-</p>
+            <p>
+              <strong>Name:</strong>
+              <%= @listing.name %>
+            </p>
 
-<%= form_for(@listing), html: { multipart: true } do |f| %>
-  <p>
-    <label>Listing Photos</label>
-    <%= image_tag(@listing.photos_url) if @listing.photos? %>
-    <%= f.file_field :photos %>
-    <%= f.hidden_field :photos_cache %>
-  </p>
-<% end %>
+            <div class="single-item">
+              <% @listing.photos.each do |x| %>
+                 <div><%= image_tag x.carousel %></div>
+              <% end %>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |

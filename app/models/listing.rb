@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
 
-	mount_uploaders :photos, PhotoUploader
+	mount_uploaders :photos, PhotosUploader
 	serialize :photos, Array
 	belongs_to :user
 
