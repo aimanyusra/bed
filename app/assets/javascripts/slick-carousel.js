@@ -1,10 +1,13 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 	$('.single-item').slick();
 
 	$('.multiple-items').slick({
 	  infinite: true,
-	  slidesToShow: 3,
-	  slidesToScroll: 3
+	  slidesToShow: 2,
+	  slidesToScroll: 1,
+	  adaptiveHeight:true,
+	  variableWidth:true
+
 	});
 
 	$('.single-item').slick();
@@ -147,6 +150,7 @@ $(document).ready(function(){
 	  fade: true,
 	  asNavFor: '.slider-nav'
 	});
+
 	$('.slider-nav').slick({
 	  slidesToShow: 3,
 	  slidesToScroll: 1,

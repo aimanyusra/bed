@@ -33,9 +33,10 @@
               <%= @listing.name %>
             </p>
 
-            <div class="single-item">
+            <div class="multiple-items">
               <% @listing.photos.each do |x| %>
                  <div><%= image_tag x.carousel %></div>
+
               <% end %>
             </div>
 
