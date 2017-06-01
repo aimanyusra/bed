@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :bookings
   root 'static#index'
 
   resources :listings, controller: 'listings' #except: [:index] -> will show everything except index

@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @booking = @listing.bookings.new
   end
 
   # GET /listings/new
