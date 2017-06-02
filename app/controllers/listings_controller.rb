@@ -24,11 +24,13 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listing = Listing.find(params[:id])
+    @listing_photos = @listing.listing_photos.all
   end
 
   # GET /listings/new
   def new
     @listing = Listing.new
+    @listing_photo = @listing.listing_photos.build
   end
 
   # GET /listings/1/edit
@@ -42,6 +44,9 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
+        params[:listing_photos]['image'].each do |a|
+        @listing_photo = @listing.listing_photos.create!(:image => a, :listing_id => @listing.id)
+        end
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
@@ -55,6 +60,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1.json
   def update
     respond_to do |format|
+    store_photos
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
@@ -83,7 +89,12 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, {images: []})
+      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, listing_photos_attributes: [:id, :listing_id, :image])
+    end
+
+    def store_photos
+        photos = params[:listing][:images]
+        photos.each{|photo| @listing.listing_photos.create(image: photo)} if photos
     end
 
 end

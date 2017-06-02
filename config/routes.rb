@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :listing_photos
   root 'static#index'
 
   resources :listings do 

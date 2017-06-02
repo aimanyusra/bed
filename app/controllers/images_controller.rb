@@ -2,7 +2,6 @@ class ImagesController < ApplicationController
   before_action :set_listing
 
   def create
-    byebug
     add_more_images(images_params)
     flash[:error] = "Failed uploading images" unless @listing.save
     redirect_to :back

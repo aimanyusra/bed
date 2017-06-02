@@ -1,0 +1,27 @@
+<%= form_for(listing_photo) do |f| %>
+  <% if listing_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing_photo.errors.count, "error") %> prohibited this listing_photo from being saved:</h2>
+
+      <ul>
+      <% listing_photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :listing_id %>
+    <%= f.number_field :listing_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
