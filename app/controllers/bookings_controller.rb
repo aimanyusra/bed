@@ -24,13 +24,16 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @listing = Listing.find(params[:listing_id])
+    @booking = current_user.bookings.new(booking_params)
+    @booking.listing = @listing
 
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
+        @errors = @booking.errors.full_messages
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
@@ -69,6 +72,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :listing_id, :start_date, :end_date, :num_of_guests)
+      params.require(:booking).permit(:start_date, :end_date, :num_of_guests)
     end
 end

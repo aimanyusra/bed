@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :bookings
   root 'static#index'
 
-  resources :listings, controller: 'listings' #except: [:index] -> will show everything except index
+  resources :listings, controller: 'listings' do 
+    resources :bookings, only: [:create]
+
+  end # except: [:index] -> will show everything except index
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create] # will only show create route
 
