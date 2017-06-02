@@ -3,9 +3,36 @@
 <p>
   <%= image_tag @user.avatar.thumb, class: "img-circle" %>
   <strong>Name:</strong>
+
+  <%= current_user.first_name %> <%= current_user.last_name %>
+  <%= link_to "Edit", edit_user_path(@user) %>
+</p>
+
+<h3>Bookings:</h3>
+<table>
+
+		<tr>
+			<td>Listing Name</td>
+			<td>Start Date</td>
+			<td>End Date</td>
+			<td>Guests</td>
+			<td>Price</td>
+		</tr>
+	<% @bookings.each do |booking| %>
+		<tr>
+			<td><%= link_to booking.listing.name, booking.listing %></td>
+			<td><%= booking.start_date %></td>
+			<td><%= booking.end_date %></td>
+			<td><%= booking.num_of_guests %></td>
+			<td><%= booking.total_price %></td>
+		</tr>
+	<% end %>
+</table>
+
   <%= @user.first_name %> <%= @user.last_name %>
 </p>
 
 
 
 <%= link_to 'Edit', edit_user_path %> | <%= link_to 'Back', users_path %>
+

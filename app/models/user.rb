@@ -4,6 +4,7 @@ class User < ApplicationRecord
 	mount_uploader :avatar, AvatarUploader
 	has_many :listings, :dependent => :destroy
 	has_many :authentications, :dependent => :destroy
+	has_many :bookings, :dependent => :destroy
 	# validates :email, presence: true, uniqueness: true
 	# validates :password, presence: true
 	validates :age, presence: true

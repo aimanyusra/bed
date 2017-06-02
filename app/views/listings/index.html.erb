@@ -1,67 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-    <div class="row">
-        <div class="col col-sm-offset-1">
-            <h1>Listings</h1>
+<h1>Listings</h1>
 
-            <table>
-              <thead>
-                <tr>
-                  <th>User</th>
-                  <th>Verified</th>
-                  <th>Description</th>
-                  <th>Address</th>
-                  <th>Num of bedrooms</th>
-                  <th>Num of guests</th>
-                  <th>Name</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Verified</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Num of bedrooms</th>
+      <th>Num of guests</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-              <tbody>
-                
-                <% if current_user.moderator? || current_user.superadmin? %>
-                  <% x = @listings %>
+  <tbody>
+    
+    <% if current_user.moderator? || current_user.superadmin? %>
+      <% x = @listings %>
+    <% else %>
+      <% x = @listings.verified %>
+    <% end %>
+     <% x.each do |listing| %>
+          <tr>
+            <td><%= listing.user.first_name %></td>
+            <% if listing.verified? %>
+            <!-- <td><%= listing.verified %></td> -->
+              <td class="text-center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+            <% else %>
+              <td class="text-center"><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+            <% end %>
+            <td><%= listing.description %></td>
+            <td><%= listing.address %></td>
+            <td><%= listing.num_of_bedrooms %></td>
+            <td><%= listing.max_guests %></td>
+            <td><%= listing.name %></td>
+            <td><%= link_to 'Show', listing %></td>
+            <% if listing.user.id == current_user.id %>
+              <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+              <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+              <% if current_user.moderator? %>
+                <% if listing.verified? %>
+                  <td><%= link_to 'Unverify', unverify_path(listing) %></td>
                 <% else %>
-                  <% x = @listings.verified %>
+                  <td><%= link_to 'Verify', verify_path(listing) %></td>
                 <% end %>
-                 <% x.each do |listing| %>
-                      <tr>
-                        <td><%= listing.user.first_name %></td>
-                        <% if listing.verified? %>
-                        <!-- <td><%= listing.verified %></td> -->
-                          <td class="text-center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
-                        <% else %>
-                          <td class="text-center"><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                        <% end %>
-                        <td><%= listing.description %></td>
-                        <td><%= listing.address %></td>
-                        <td><%= listing.num_of_bedrooms %></td>
-                        <td><%= listing.num_of_guests %></td>
-                        <td><%= listing.name %></td>
-                        <td><%= link_to 'Show', listing %></td>
-                        <% if listing.user.id == current_user.id %>
-                          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-                          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        <% end %>
-                          <% if current_user.moderator? %>
-                            <% if listing.verified? %>
-                              <td><%= link_to 'Unverify', unverify_path(listing) %></td>
-                            <% else %>
-                              <td><%= link_to 'Verify', verify_path(listing) %></td>
-                            <% end %>
-                         <% end %>
-                      </tr>
-                <% end %>
-              </tbody>
-            </table>
+             <% end %>
+          </tr>
+    <% end %>
+  </tbody>
+</table>
 
-            <br>
+<br>
 
-            <%= link_to 'New Listing', new_listing_path %>
+<%= link_to 'New Listing', new_listing_path %>
 
-            <%= paginate x %>
-        </div>
-    </div>
-</div>
+<%= paginate x %>

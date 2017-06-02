@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     @listings.verified!
     redirect_to :back
   end  
-
+  
   def unverify
     @listings = Listing.find(params[:listing_id])
     @listings.unverified!
@@ -23,8 +23,12 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+
+    @booking = @listing.bookings.new
+
     @listing = Listing.find(params[:id])
     @listing_photos = @listing.listing_photos.all
+
   end
 
   # GET /listings/new
