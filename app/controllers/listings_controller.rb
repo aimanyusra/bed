@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
-
   def verify
     @listings = Listing.find(params[:listing_id])
     @listings.verified!
@@ -84,6 +83,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, photos: [])
+      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, {images: []})
     end
+
 end

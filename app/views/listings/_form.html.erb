@@ -36,17 +36,18 @@
     <%= f.number_field :num_of_guests %>
   </div>
 
-  <div class="field">
-    <%= f.label :photos %>
-    <%= f.file_field :photos, multiple: true %>
-  </div>
-
-  <div>
-      <%= f.check_box :remove_photos %>
-      Remove photos
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+h1 Add more images
+<h1>Add more images</h1>
+
+
+<%= form_for @listing, url: listing_images_path(@listing), method: :post do |f| %> 
+<div class="field"> 
+    <%= f.file_field :images, multiple: true %>
+</div>
+    <%= f.submit "Add more images" %>
 <% end %>

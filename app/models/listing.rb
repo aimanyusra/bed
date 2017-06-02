@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
 
-	mount_uploaders :photos, PhotosUploader
-	serialize :photos, Array
+	mount_uploaders :images, PhotosUploader
+	serialize :images, Array
 	belongs_to :user
 
 	paginates_per 10

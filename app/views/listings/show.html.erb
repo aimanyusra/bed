@@ -33,11 +33,14 @@
               <%= @listing.name %>
             </p>
 
-            <div class="multiple-items">
-              <% @listing.photos.each do |x| %>
-                 <div><%= image_tag x.carousel %></div>
 
-              <% end %>
+
+            <div>
+            <%# byebug %>
+                <% @listing.images.each_with_index do |image, index| #grab the index %>
+                    <%= image_tag(image.url) %>
+                    <% link_to "Delete", listing_image_path(@listing, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
+                <% end %>
             </div>
 
         </div>
