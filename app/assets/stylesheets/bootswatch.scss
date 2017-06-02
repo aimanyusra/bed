@@ -6873,6 +6873,12 @@ legend {
   color: #333333;
 }
 
+
+.slick-prev:before, .slick-next:before { 
+    color:grey ;
+}
+
+
 // navbar underline transitions
 
 // hr {
