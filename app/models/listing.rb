@@ -1,8 +1,12 @@
 class Listing < ApplicationRecord
+
   belongs_to :user
   has_many :bookings
+	has_many :listing_photos
 
-  paginates_per 10
+	belongs_to :user
 
-  enum verified: [:unverified, :verified]
+	paginates_per 10
+
+	enum verified: [:unverified, :verified]
 end

@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
 
+
   resources :bookings
+  resources :listing_photos
   root 'static#index'
 
   resources :listings, controller: 'listings' do 
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :destroy]
 
   end # except: [:index] -> will show everything except index
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create] # will only show create route
 
-  resources :users, controller: "users", only: [:create, :show] do
+
+
+  resources :users, controller: "users", only: [:create, :show, :edit, :show, :index] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -25,4 +29,5 @@ Rails.application.routes.draw do
 
   get '/verify/:listing_id' => "listings#verify", as: "verify"
   get '/unverify/:listing_id' => "listings#unverify", as: "unverify"
+
 end

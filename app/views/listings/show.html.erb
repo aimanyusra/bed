@@ -30,6 +30,12 @@
   <%= @listing.name %>
 </p>
 
+            <div class="multiple-items">
+            <% @listing.listing_photos.each do |x| %>
+              <div><%= image_tag x.image.carousel %></div>
+            <% end %>
+            </div>
+            
 <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>
