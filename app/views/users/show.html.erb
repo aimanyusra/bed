@@ -5,8 +5,8 @@
   <strong>Name:</strong>
 
   <%= current_user.first_name %> <%= current_user.last_name %>
-  <%= link_to "Edit", edit_user_path(@user) %>
 </p>
+
 
 <h3>Bookings:</h3>
 <table>
@@ -35,4 +35,5 @@
 
 
 <%= link_to 'Edit', edit_user_path %> | <%= link_to 'Back', users_path %>
+
 
