@@ -6,3 +6,21 @@
     display: block;
 	background:linear-gradient(to right,rgba(255,255,255,0.99) 20%,rgba(255,255,255,0.7) 70%,rgba(255,255,255,0) 95%);;
 }
+
+.carousel_img {
+	padding-left: 15px;
+}
+
+/* Required to hold the caption, or any closest parent selector to  .slide__caption */
+.slide {
+  position: relative;
+}
+
+.slide_caption {
+  bottom: 0;
+  min-height: 80px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
