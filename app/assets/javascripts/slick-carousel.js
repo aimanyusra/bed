@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function(){
 	  infinite: false,
 	  speed: 700,
 	  slidesToShow: 5,
-	  slidesToScroll: 1,
+  slidesToScroll: 1,
 	  responsive: [
 	    {
 	      breakpoint: 1024,
