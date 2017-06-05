@@ -33,8 +33,8 @@
 			<div class="responsive slide">
 				<% @listing.each do |x| %>
 					<% x.listing_photos.each do |y| %>
-						<div><%= image_tag y.image.list, class: "carousel_img" %>
-						<div class="slide-caption"><h4><%= x.name %></h4><h4>RM<%= x.price %></h4></div></div>
+					<div><a href= "/listings/<%= x.id %>" target="_blank" class="img"><%= image_tag(y.image.list, :class => "carousel-img")%></a>
+						<a href= "/listings/<%= x.id %>"><div class="slide-caption"><h5><%= x.name %></h5></div></a><h5 class="price">RM<%= x.price %></h5></div>
 					<% end %>
 				<% end %>
 			</div>
