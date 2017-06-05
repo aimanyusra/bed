@@ -30,7 +30,7 @@
 <div class="carousel-container margin-top-25">
 	<div class="container">
 		<div class="row">
-			<div class="responsive slide">
+			<div class="responsive slide carousel">
 				<% @listing.each do |x| %>
 					<% x.listing_photos.each do |y| %>
 					<div><a href= "/listings/<%= x.id %>" target="_blank" class="img"><%= image_tag(y.image.list, :class => "carousel-img")%></a>
