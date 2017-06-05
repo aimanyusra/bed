@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'braintree/new'
+  post 'braintree/checkout'
+
   resources :bookings
   resources :listing_photos
   root 'static#index'
@@ -29,5 +32,4 @@ Rails.application.routes.draw do
 
   get '/verify/:listing_id' => "listings#verify", as: "verify"
   get '/unverify/:listing_id' => "listings#unverify", as: "unverify"
-
 end

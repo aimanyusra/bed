@@ -47,6 +47,7 @@ gem 'fog'
 gem "jquery-slick-rails" # carousel
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'braintree' # payment gateway gem
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
