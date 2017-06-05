@@ -29,12 +29,12 @@
 
 <div class="carousel-container margin-top-25">
 	<div class="container">
-		<div class="row slide">
-			<div class="responsive">
+		<div class="row">
+			<div class="responsive slide">
 				<% @listing.each do |x| %>
-					<div class="slide_caption"><%= x.name %></div>
 					<% x.listing_photos.each do |y| %>
-						<div><%= image_tag y.image.list, class: "carousel_img" %></div>
+						<div><%= image_tag y.image.list, class: "carousel_img" %>
+						<div class="slide-caption"><h4><%= x.name %></h4><h4>RM<%= x.price %></h4></div></div>
 					<% end %>
 				<% end %>
 			</div>
