@@ -6,15 +6,19 @@
     </div>
     <% end %>
 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date, placeholder: 'Start Date', class: 'form-control', id:"datetimepicker3"%>
+   </div>
   </div>
 
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
-  </div>  
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :end_date %>
+      <%= f.text_field :end_date, placeholder: 'End Date', class: 'form-control', id:"datetimepicker4" %>
+    </div>
+  </div>
 
   <div class="field">
     <%= f.label :num_of_guests %>
@@ -25,3 +29,23 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<script>
+$(document).ready(function(){
+    $('#datetimepicker3').datetimepicker({
+        format: 'MMM DD YYYY'
+    });
+    $('#datetimepicker4').datetimepicker({
+        useCurrent: false, //Important! See issue #1075
+          format: 'MMM DD YYYY'
+    });
+    $("#datetimepicker3").on("dp.change", function (e) {
+        $('#datetimepicker4').data("DateTimePicker").minDate(e.date);
+    });
+    $("#datetimepicker4").on("dp.change", function (e) {
+        $('#datetimepicker3').data("DateTimePicker").maxDate(e.date);
+    });
+});
+
+</script>
