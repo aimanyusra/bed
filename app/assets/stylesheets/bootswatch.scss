@@ -246,7 +246,7 @@ th {
     page-break-after: avoid;
   }
   .navbar {
-    display: none;
+    background-color: white;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -1611,6 +1611,7 @@ pre code {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  background-color: white;
 }
 .row {
   margin-left: -15px;
@@ -4170,8 +4171,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 65px;
-  margin-bottom: 22px;
   border: 1px solid transparent;
+  margin-bottom: 0px;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4191,6 +4192,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
+  background-color: white;
 }
 .navbar-collapse.in {
   overflow-y: auto;
@@ -6876,6 +6878,51 @@ legend {
 
 .slick-prev:before, .slick-next:before { 
     color:grey ;
+}
+
+
+
+.main-search-container {
+  background-image: url(banner-bg.jpg);
+  height: 620px;
+  display: block;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.main-search-inner {
+  position: relative;
+  display: block;
+  top: 40%;
+  transform: translate(0,-50%);
+  padding-bottom: 30px;
+}
+
+.headline.centered {
+    text-align: center;
+}
+
+h3.headline {
+    font-size: 30px;
+    line-height: 37px;
+    margin: 0 0 30px 0;
+}
+
+.margin-top-75 {
+    margin-top: 75px!important;
+}
+
+.margin-top-25 {
+  margin-top: 25px!important;
+}
+
+.headline span i {
+    color: #89bdd3;
+    font-weight: bold;
+    font-style: normal;
 }
 
 

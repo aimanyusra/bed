@@ -1,5 +1,10 @@
 @import "variables";
-@import "bootswatch";
 @import "rails_bootstrap_forms";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import	'bootstrap-datetimepicker';
 @import 'slick';
+@import "bootswatch";
+@import 'custom';
+
 // @import 'slick-theme';

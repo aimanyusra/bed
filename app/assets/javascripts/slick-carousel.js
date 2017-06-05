@@ -2,22 +2,20 @@ $(document).on('turbolinks:load', function(){
 	$('.single-item').slick();
 
 	$('.multiple-items').slick({
-	  infinite: true,
+	  // infinite: true,
 	  slidesToShow: 2,
 	  slidesToScroll: 1,
 	  adaptiveHeight:true,
-	  variableWidth:true
-
+	  variableWidth:true,
+	  focusOnSelect:true
 	});
 
-	$('.single-item').slick();
-
 	$('.responsive').slick({
-	  dots: true,
+	  dots: false,
 	  infinite: false,
-	  speed: 300,
-	  slidesToShow: 4,
-	  slidesToScroll: 4,
+	  speed: 700,
+	  slidesToShow: 5,
+  slidesToScroll: 1,
 	  responsive: [
 	    {
 	      breakpoint: 1024,
