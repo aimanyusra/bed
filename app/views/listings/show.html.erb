@@ -5,8 +5,7 @@
 
 <div class="container-fluid">
     <!-- This div is used to indicate the original position of the scrollable fixed div. -->
-    <div class="scroller_anchor"></div>
-    <div class="scroller listing-bar text-center">
+    <div class="listing-bar text-center" data-spy="affix" data-offset-top="1000">
       <div class="row">
         <div class="col col-sm-3">
           <h4><%= @listing.name %></h4>
@@ -22,11 +21,6 @@
           <h4>RM<%= @listing.price %>&nbsp;&nbsp;&nbsp;<span><%= button_tag "Book Now", class:"btn btn-default" %></span></h4>
         </div>
       </div>
-
-      <div class="row">
-        <hr class="style1">
-      </div>
-    </div>
 </div>
 
   <div class="col col-sm-offset-3 col-sm-6">
