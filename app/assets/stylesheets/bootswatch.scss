@@ -6935,6 +6935,21 @@ h3.headline {
     font-style: normal;
 }
 
+.cover-banner {
+  height: 320px;
+}
+
+.cover-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 320px;
+  width: 100%;
+}
+
+.host {
+  color: #89bdd3;
+}
 
 // navbar underline transitions
 
