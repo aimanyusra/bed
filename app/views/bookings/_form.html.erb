@@ -22,11 +22,11 @@
 
   <div class="field">
     <%= f.label :num_of_guests %>
-    <%= f.number_field :num_of_guests %>
+    <%= f.number_field :num_of_guests, min: 1, max: @listing.max_guests %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Request a Booking', class: 'btn btn-default' %>
   </div>
 <% end %>
 

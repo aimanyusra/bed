@@ -3,61 +3,74 @@
   <div class="cover-img" style="background-image: url(<%= @listing.listing_photos.first.image %>)"></div>
 </div>
 
-<div class="container-fluid">
+<div>
     <!-- This div is used to indicate the original position of the scrollable fixed div. -->
-    <div class="listing-bar text-center" data-spy="affix" data-offset-top="1000">
+    <div class="listing-bar text-center" data-spy="affix" data-offset-top="390">
       <div class="row">
         <div class="col col-sm-3">
-          <h4><%= @listing.name %></h4>
+          <h4>
+            Listing Name <br>  <span class="highlight"><%= @listing.name %></span>
+          </h4>
         </div>
 
         <div class="col col-sm-6">
+
           <h4>
-            Hosted by <span class="host"><p><%= @listing.user.first_name %> <%= @listing.user.last_name %></p></span>
+            Hosted by <span class="highlight"><%= @listing.user.first_name %> <%= @listing.user.last_name %> <%= image_tag @listing.user.avatar.thumb, class:"img-circle" %>
+</span>
           </h4>
         </div>
 
         <div class="col col-sm-3">
-          <h4>RM<%= @listing.price %>&nbsp;&nbsp;&nbsp;<span><%= button_tag "Book Now", class:"btn btn-default" %></span></h4>
+          <h4>
+            Price <br>RM<span class="highlight"><%= @listing.price %></span>/night
+          </h4>
         </div>
       </div>
 </div>
 
-  <div class="col col-sm-offset-3 col-sm-6">
-      <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-sm-offset-3 col-sm-6">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Description:</strong>
+          <%= @listing.description %>
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          <%= @listing.address %>
+        </p>
+
+        <p>
+          <strong>Num of bedrooms:</strong>
+          <%= @listing.num_of_bedrooms %>
+        </p>
+
+        <p>
+          <strong>Max number of guests:</strong>
+          <%= @listing.max_guests %>
+        </p>
 
 
-
-      <p>
-        <strong>Description:</strong>
-        <%= @listing.description %>
-      </p>
-
-      <p>
-        <strong>Address:</strong>
-        <%= @listing.address %>
-      </p>
-
-      <p>
-        <strong>Num of bedrooms:</strong>
-        <%= @listing.num_of_bedrooms %>
-      </p>
-
-      <p>
-        <strong>Max number of guests:</strong>
-        <%= @listing.max_guests %>
-      </p>
-
-      <div class="single-item">
-        <% @listing.listing_photos.each do |x| %>
-          <div><%= image_tag x.image.carousel %></div>
+        <div class="single-item">
+          <% @listing.listing_photos.each do |x| %>
+            <div><%= image_tag x.image.carousel %></div>
+          <% end %>
+        </div>
+                    
+        <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
+          <%= link_to 'Edit Listing', edit_listing_path(@listing) %> |
         <% end %>
-      </div>
-                  
-      <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
-        <%= link_to 'Edit', edit_listing_path(@listing) %> |
-      <% end %>
-        <%= link_to 'Back', listings_path %>
+          <%= link_to 'Back', listings_path %>
 
-        <%= render "bookings/form" %>
+          
+    </div>
+    <div class="col col-sm-3">
+      <br>
+      <%= render "bookings/form" %>
+    </div>
   </div>
+</div>

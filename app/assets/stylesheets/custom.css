@@ -139,9 +139,11 @@ hr.style1 {
 .listing-bar {
 /*  padding-left: 20px;
   padding-right: 20px;*/
-  padding-top: 15px;
+  /*padding-top: 15px;*/
   width: 100%;
   border-bottom: 1px solid #DBDBDB !important;
+  background-color: white;
+  z-index: 9999;
 }
 
 .affix {
