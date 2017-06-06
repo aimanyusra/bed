@@ -4,7 +4,7 @@
     height: 100%;
     width: 100%;
     display: block;
-		background:linear-gradient(to right,rgba(255,255,255,0.99) 20%,rgba(255,255,255,0.7) 70%,rgba(255,255,255,0) 95%);;
+		background:linear-gradient(to right,rgba(255,255,255,0.99) 20%,rgba(255,255,255,0.7) 70%,rgba(255,255,255,0) 95%);
 }
 
 /* carousel padding */
@@ -129,4 +129,14 @@ a.img:focus {
   max-width: 50.75em;
   margin: 0 auto;
   padding: 1.875em;
+}
+
+hr.style1 {
+  border-top: 1px solid #8c8b8b;
+}
+
+.listing-bar {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
 }
