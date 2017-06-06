@@ -27,9 +27,13 @@ class BookingsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @booking = current_user.bookings.new(booking_params)
     @booking.listing = @listing
+    @host = User.find(@listing.user_id)
 
     respond_to do |format|
       if @booking.save
+        # ReservationMailer.notification_email(current_user.email, @host, @reservation.listing.id, @reservation.id).deliver_later
+        ReservationJob.perform_later(current_user, @host, @booking.listing.id, @booking.id)
+        # call out reservation job to perform the mail sending task after @reservation is successfully saved
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -37,6 +41,11 @@ class BookingsController < ApplicationController
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
+    end
+
+    if @booking.save
+      ReservationMailer.notification_email(current_user.email, @host, @booking.listing.id, @booking.id).deliver_now
+      # ReservationMailer to send a notification email after save
     end
   end
 

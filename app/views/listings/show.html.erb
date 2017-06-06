@@ -1,27 +1,31 @@
 
-    <div class="cover-banner">
-      <div class="cover-img" style="background-image: url(<%= @listing.listing_photos.first.image %>)"></div>
-    </div>
+<div class="cover-banner">
+  <div class="cover-img" style="background-image: url(<%= @listing.listing_photos.first.image %>)"></div>
+</div>
 
-<div class="container-fluid listing-bar text-center">
-    <div class="row">
-      <div class="col col-sm-3">
-        <h1><%= @listing.name %></h1>
+<div class="container-fluid">
+    <!-- This div is used to indicate the original position of the scrollable fixed div. -->
+    <div class="scroller_anchor"></div>
+    <div class="scroller listing-bar text-center">
+      <div class="row">
+        <div class="col col-sm-3">
+          <h4><%= @listing.name %></h4>
+        </div>
+
+        <div class="col col-sm-6">
+          <h4>
+            Hosted by <span class="host"><p><%= @listing.user.first_name %> <%= @listing.user.last_name %></p></span>
+          </h4>
+        </div>
+
+        <div class="col col-sm-3">
+          <h4>RM<%= @listing.price %>&nbsp;&nbsp;&nbsp;<span><%= button_tag "Book Now", class:"btn btn-default" %></span></h4>
+        </div>
       </div>
 
-      <div class="col col-sm-6">
-        <h1>
-          Hosted by <span class="host"><%= @listing.user.first_name %> <%= @listing.user.last_name %></span>
-        </h1>
+      <div class="row">
+        <hr class="style1">
       </div>
-
-      <div class="col col-sm-3">
-        <h1>RM<%= @listing.price %>&nbsp;&nbsp;&nbsp;<span><%= button_tag "Book Now", class:"btn btn-default" %></span></h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <hr class="style1">
     </div>
 </div>
 
