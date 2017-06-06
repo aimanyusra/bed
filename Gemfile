@@ -39,15 +39,27 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap_form'
 gem 'faker'
-gem 'kaminari' # pagination gem
-gem 'carrierwave', '~> 1.0' # photo uploading gem
+# pagination gem
+gem 'kaminari' 
+# photo uploading gem
+gem 'carrierwave', '~> 1.0' 
 gem 'mini_magick'
-gem 'fog-aws' # amazon cloud hosting
+# amazon cloud hosting
+gem 'fog-aws' 
 gem 'fog'
-gem "jquery-slick-rails" # carousel
+# carousel
+gem "jquery-slick-rails" 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-gem 'braintree' # payment gateway gem
+# payment gateway gem
+gem 'braintree' 
+# mail preview gem
+gem "letter_opener", :group => :development 
+#email queuing
+gem 'sidekiq' 
+
+# gem 'redis-server'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

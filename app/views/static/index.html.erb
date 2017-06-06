@@ -31,11 +31,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="responsive slide carousel">
-				<% @listing.each do |x| %>
-					<% x.listing_photos.each do |y| %>
-					<div><a href= "/listings/<%= x.id %>" target="_blank" class="img"><%= image_tag(y.image.list, :class => "carousel-img")%></a>
+				<% @listing.shuffle.each do |x| %>
+					<%if x.listing_photos.first != nil %>
+					<div><a href= "/listings/<%= x.id %>" target="_blank" class="img"><%= image_tag(x.listing_photos.sample.image.list, :class => "carousel-img")%></a>
 						<a href= "/listings/<%= x.id %>"><div class="slide-caption"><h5><%= x.name %></h5></div></a><h5 class="price">RM<%= x.price %></h5></div>
-					<% end %>
+					<%end%>
 				<% end %>
 			</div>
 		</div>
