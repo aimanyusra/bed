@@ -18,6 +18,7 @@
 			<td>Guests</td>
 			<td>Price</td>
 		</tr>
+	<% if @bookings %>
 	<% @bookings.each do |booking| %>
 		<tr>
 			<td><%= link_to booking.listing.name, booking.listing %></td>
@@ -26,6 +27,7 @@
 			<td><%= booking.num_of_guests %></td>
 			<td><%= booking.total_price %></td>
 		</tr>
+	<% end %>
 	<% end %>
 </table>
 
