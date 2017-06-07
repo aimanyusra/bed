@@ -4,7 +4,7 @@
       <div id="clearance" class="sign-up">
         <h2><%= t(".title") %></h2>
 
-        <%= bootstrap_form_for @user, remote: true do |form| %>
+        <%= bootstrap_form_for @user, remote: true, authenticity_token: true do |form| %>
           <%= render partial: '/users/form', object: form %>
 
           <div class="submit-field">
