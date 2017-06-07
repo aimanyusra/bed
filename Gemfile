@@ -86,7 +86,7 @@ group :production do
   # gem for server setup automation
   gem 'rails_12factor' 
   # Unicorn is a Rack HTTP server that uses forked processes to handle multiple incoming requests concurrently.
-  gem 'unicorn'
+  # gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
