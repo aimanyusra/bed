@@ -1,6 +1,6 @@
 <div class="demo-frame">  
 
-  <%= form_for :checkout_form, url: braintree_checkout_path, html: { id: "cardForm"} do |form| %>
+  <%= form_for :checkout_form, url: booking_braintree_index_path, html: { id: "cardForm"} do |form| %>
 
     <%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"} %>
     <div id="card-number" class="hosted-field"></div>
@@ -10,6 +10,9 @@
 
     <%= form.label :cvv, "CVV", html: {class: "hosted-fields--label"} %>
     <div id="cvv" class="hosted-field"></div>
+
+    <%= form.label :amount, "Amount", html: {class: "hosted-fields--label"} %>
+        <%= form.text_field :amount, value: @price %>
 
     <%= form.hidden_field "payment_method_nonce" %>
 

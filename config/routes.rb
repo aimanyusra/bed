@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'braintree/new'
   post 'braintree/checkout'
 
-  resources :bookings
+  resources :bookings do 
+    resources :braintree, only: [:new, :create]
+  end
+  
   resources :listing_photos
   root 'static#index'
 

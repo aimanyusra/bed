@@ -1,36 +1,35 @@
-<%= form_for [@listing, @booking] do |f| %>
+ 
+  <%= form_for [@listing, @booking] do |f| %>
 
-  <% if @errors.present? %>
-    <div>
-      <%= @errors %>
+    <% if @errors.present? %>
+      <div>
+        <%= @errors %>
+      </div>
+      <% end %>
+
+    <div class="row">
+      <div class="col col-sm-6 col-sm-offset-3">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, placeholder: 'Start Date', class: 'form-control', id:"datetimepicker3"%>
+      </div>
     </div>
-    <% end %>
 
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.label :start_date %>
-      <%= f.text_field :start_date, placeholder: 'Start Date', class: 'form-control', id:"datetimepicker3"%>
-   </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.label :end_date %>
-      <%= f.text_field :end_date, placeholder: 'End Date', class: 'form-control', id:"datetimepicker4" %>
+    <div class="row">
+      <div class="col col-sm-6 col-sm-offset-3">
+        <%= f.label :end_date %>
+        <%= f.text_field :end_date, placeholder: 'End Date', class: 'form-control', id:"datetimepicker4" %>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :num_of_guests %>
-    <%= f.number_field :num_of_guests, min: 1, max: @listing.max_guests %>
-  </div>
+    <div class="row">
+      <%= f.label :num_of_guests %>
+      <%= f.number_field :num_of_guests, min: 1, max: @booking.listing.max_guests %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit 'Request a Booking', class: 'btn btn-default' %>
-  </div>
-<% end %>
-
-<%= link_to "Make Payment", braintree_new_path %>
+    <div class="actions">
+      <%= f.submit 'Request a Booking', class: 'btn btn-default' %>
+    </div>
+  <% end %>
 
 <script>
 $(document).ready(function(){
