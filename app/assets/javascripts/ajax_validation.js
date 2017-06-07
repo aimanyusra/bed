@@ -2,7 +2,6 @@ $.ajaxSetup({
   dataType: 'json'
 })
 
-# New User
 $("#new_user").on("ajax:success", (e, data, status, xhr) ->
   $("#users").append("<li>" + data['name'] + "</li>")
   $("#users").effect("highlight")
