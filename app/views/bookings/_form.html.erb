@@ -35,11 +35,12 @@
 <script>
 $(document).ready(function(){
     $('#datetimepicker3').datetimepicker({
-        format: 'MMM DD YYYY'
+      useCurrent: false,
+        format: 'DD MMM YYYY'
     });
     $('#datetimepicker4').datetimepicker({
-        useCurrent: false, //Important! See issue #1075
-          format: 'MMM DD YYYY'
+        useCurrent: true, //Important! See issue #1075
+          format: 'DD MMM YYYY'
     });
     $("#datetimepicker3").on("dp.change", function (e) {
         $('#datetimepicker4').data("DateTimePicker").minDate(e.date);
