@@ -407,7 +407,6 @@ DEPENDENCIES
   faker
   figaro
   fog
-  fog-aws
   jbuilder (~> 2.5)
   jquery-rails
   jquery-slick-rails

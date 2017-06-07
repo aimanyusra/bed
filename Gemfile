@@ -53,8 +53,8 @@ gem 'kaminari'
 gem 'carrierwave', '~> 1.0' 
 gem 'mini_magick'
 # amazon cloud hosting
-gem 'fog-aws' 
-gem 'fog'
+# gem 'fog-aws' 
+gem 'fog' 
 # carousel
 gem "jquery-slick-rails" 
 gem 'momentjs-rails', '>= 2.9.0'
