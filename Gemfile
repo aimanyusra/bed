@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby "2.4.0"
+
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -32,6 +34,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # jQuery turbolinks
 gem 'jquery-turbolinks'
+# gem for server setup automation
+gem 'rails_12factor' 
+# Unicorn is a Rack HTTP server that uses forked processes to handle multiple incoming requests concurrently.
+gem 'unicorn'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
