@@ -1,6 +1,8 @@
 
 <div class="cover-banner">
+<% if @listing.listing_photos.first != nil %>
   <div class="cover-img" style="background-image: url(<%= @listing.listing_photos.first.image %>)"></div>
+<% end %>
 </div>
 
 <div>
