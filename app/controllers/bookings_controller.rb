@@ -43,10 +43,10 @@ class BookingsController < ApplicationController
       end
     end
 
-    if @booking.save
-      ReservationMailer.notification_email(current_user.email, @host, @booking.listing.id, @booking.id).deliver_now
-      # ReservationMailer to send a notification email after save
-    end
+    # if @booking.save
+    #   ReservationMailer.notification_email(current_user.email, @host, @booking.listing.id, @booking.id).deliver_now
+    #   # ReservationMailer to send a notification email after save
+    # end
   end
 
   # PATCH/PUT /bookings/1
