@@ -34,10 +34,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # jQuery turbolinks
 gem 'jquery-turbolinks'
-# gem for server setup automation
-gem 'rails_12factor' 
-# Unicorn is a Rack HTTP server that uses forked processes to handle multiple incoming requests concurrently.
-gem 'unicorn'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -83,6 +80,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  # gem for server setup automation
+  gem 'rails_12factor' 
+  # Unicorn is a Rack HTTP server that uses forked processes to handle multiple incoming requests concurrently.
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
