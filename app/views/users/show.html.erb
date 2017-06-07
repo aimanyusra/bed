@@ -18,7 +18,7 @@
 			<td>Guests</td>
 			<td>Price</td>
 		</tr>
-	<% if @bookings %>
+	<% if @bookings.first != nil %>
 	<% @bookings.each do |booking| %>
 		<tr>
 			<td><%= link_to booking.listing.name, booking.listing %></td>
