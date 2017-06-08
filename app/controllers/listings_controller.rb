@@ -1,5 +1,23 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  
+  def search
+    options = {
+      fields: %w(name location),
+      misspellings: { below: 5 },
+      page: params[:page], 
+      per_page: 10
+    }
+
+    options[:where] = { verified: 'verified' } if current_user.moderator? || current_user.superadmin?
+
+    @listings = Listing.search(params[:autocomplete], options)
+    if @listings.blank?
+      redirect_to listings_path, flash:{danger: "no successful search result"}
+    else
+      render :index
+    end
+  end
 
   def verify
     @listings = Listing.find(params[:listing_id])
@@ -93,7 +111,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, listing_photos_attributes: [:id, :listing_id, :image])
+      params.require(:listing).permit(:description, :address, :num_of_bedrooms, :num_of_guests, :name, :location, listing_photos_attributes: [:id, :listing_id, :image])
     end
 
     def store_photos

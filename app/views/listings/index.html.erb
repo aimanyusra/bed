@@ -18,12 +18,8 @@
 
   <tbody>
     
-    <% if current_user.moderator? || current_user.superadmin? %>
-      <% x = @listings %>
-    <% else %>
-      <% x = @listings.verified %>
-    <% end %>
-     <% x.each do |listing| %>
+
+     <% @listings.each do |listing| %>
           <tr>
             <td><%= listing.user.first_name %></td>
             <% if listing.verified? %>
@@ -58,4 +54,4 @@
 
 <%= link_to 'New Listing', new_listing_path %>
 
-<%= paginate x %>
+<%= paginate @listings %>

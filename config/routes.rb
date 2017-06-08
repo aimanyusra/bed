@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :listing_photos
   root 'static#index'
+  get '/search', to: 'listings#search', as: 'search'
 
   resources :listings, controller: 'listings' do 
     resources :bookings, only: [:create, :destroy]

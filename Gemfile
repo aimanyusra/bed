@@ -62,6 +62,8 @@ gem 'braintree'
 gem "letter_opener", :group => :development 
 #email queuing
 gem 'sidekiq' 
+# search server
+gem 'searchkick'
 
 # gem 'redis-server'
 

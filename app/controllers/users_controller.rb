@@ -36,7 +36,8 @@ class UsersController < Clearance::UsersController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @bookings = @user.bookings
   end
 
   def edit
