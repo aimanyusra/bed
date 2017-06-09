@@ -9,7 +9,11 @@ class ListingsController < ApplicationController
       per_page: 10
     }
 
-    options[:where] = { verified: 'verified' } if current_user.customer?
+    if signed_in?
+      options[:where] = { verified: 'verified' } if current_user.customer?
+    else
+      options[:where] = { verified: 'verified' } 
+    end
 
     @listings = Listing.search(params[:autocomplete], options)
     if @listings.blank?
