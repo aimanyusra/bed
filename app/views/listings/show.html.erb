@@ -17,6 +17,7 @@
 
         <div class="col col-sm-6">
 
+
           <h4>
             Hosted by <span class="highlight"><%= link_to @listing.user.full_name, user_path(@listing.user.id)  %><%= image_tag @listing.user.avatar.thumb, class:"img-circle" %>
             </span>
@@ -67,9 +68,11 @@
             <div><%= image_tag x.image.carousel %></div>
           <% end %>
         </div>
-                    
-        <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
-          <%= link_to 'Edit Listing', edit_listing_path(@listing) %> |
+        
+        <% if signed_in? %>            
+          <% if (@listing.user.id == current_user.id) || current_user.moderator? || current_user.superadmin? %>
+            <%= link_to 'Edit Listing', edit_listing_path(@listing) %> |
+          <% end %>
         <% end %>
           <%= link_to 'Back', listings_path %>
 
