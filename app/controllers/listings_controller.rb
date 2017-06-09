@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
       per_page: 10
     }
 
-    options[:where] = { verified: 'verified' } if current_user.moderator? || current_user.superadmin?
+    options[:where] = { verified: 'verified' } if current_user.customer?
 
     @listings = Listing.search(params[:autocomplete], options)
     if @listings.blank?
@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
 
     @listing = Listing.find(params[:id])
     @listing_photos = @listing.listing_photos.all
-
+    
   end
 
   # GET /listings/new

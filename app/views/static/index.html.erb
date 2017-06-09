@@ -19,9 +19,9 @@
 
 
 				<!-- GEOCOMPELTE TEST -->
-				<div id="locationField">
+<!-- 				<div id="locationField">
     			<input id="autocomplete" placeholder="Enter your address" type="text"></input>
-				</div>
+				</div> -->
 <!-- <table id="address">
     <tr>
         <td class="label">Street address</td>
@@ -92,7 +92,7 @@
 				<% @listing.shuffle.each do |x| %>
 					<%if x.listing_photos.first != nil %>
 					<div><a href= "/listings/<%= x.id %>" target="_blank" class="img"><%= image_tag(x.listing_photos.sample.image.list, :class => "carousel-img")%></a>
-						<a href= "/listings/<%= x.id %>"><div class="slide-caption"><h5><%= x.name %></h5></div></a><h5 class="price">RM<%= x.price %></h5></div>
+						<a href= "/listings/<%= x.id %>"><div class="slide-caption"><h5><%= x.name %></h5></div></a><h5 class="price">RM<span class="highlight-red"><%= x.price %></span>/night</h5></div>
 					<%end%>
 				<% end %>
 			</div>

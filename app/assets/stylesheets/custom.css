@@ -35,9 +35,10 @@
 }
 
 .price {
-	color: #bb6b6b;
   padding-left: 20px;
 }
+
+
 
 a.img:focus {
 	outline-color: white;

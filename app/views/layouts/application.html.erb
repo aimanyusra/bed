@@ -64,7 +64,7 @@
         
           <%= form_tag search_path, method: "get", class: "navbar-form navbar-left" do |f| %>
             <div class="form-group">
-              <%= text_field_tag :autocomplete_nav, params[:autocomplete],placeholder:"Look for a Katil", class: "form-control" %>
+              <%= text_field_tag :autocomplete, params[:autocomplete],placeholder:"Look for a Katil", class: "form-control" %>
               <%= submit_tag 'Search', class: 'btn btn-default' %>
             </div>  
             <!-- end of search form -->

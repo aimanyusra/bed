@@ -14,6 +14,9 @@ class User < ApplicationRecord
 	# you can also explicitly define enum as:  enum access_level: [:employee => 0, :company_admin => 1, :super_admin => 2}
   	enum access_level: [:customer, :moderator, :superadmin]
 
+  	def full_name
+  		"#{self.first_name} #{self.last_name}"
+  	end
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
 		user = User.create!(first_name: auth_hash[:extra]["raw_info"].first_name, last_name: auth_hash[:extra]["raw_info"].last_name, email: auth_hash["extra"]["raw_info"]["email"], age: auth_hash[:extra]["raw_info"]["age_range"].min[1], gender: auth_hash[:extra]["raw_info"].gender)
