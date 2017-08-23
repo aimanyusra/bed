@@ -1,26 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user %>
-</p>
+<div class="row">
+	<div class="container">
+		<div class="text-center">
+			<h1><strong>Your Booking Details:</strong></h1>
+		</div>
+		<div>
+			<p>
+			  <strong>Booking ID:</strong>
+			  # <%= @booking.id %>
+			</p>
 
-<p>
-  <strong>Listing:</strong>
-  <%= @booking.listing %>
-</p>
+			<p>
+			  <strong>Listing:</strong>
+			  <%= link_to @booking.listing.name, listing_path(@booking.listing.id), target: '_blank' %>
+			</p>		
 
-<p>
-  <strong>Start date:</strong>
-  <%= @booking.start_date %>
-</p>
+			<p>
+			  <strong>Listing Owner:</strong>
+			  <%= link_to @booking.listing.user.first_name, user_path(@booking.listing.user.id) %>
+			</p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @booking.end_date %>
-</p>
+			<p>
+			  <strong>Start date:</strong>
+			  <%= @booking.start_date.strftime("%d/%m/%Y") %>
+			</p>
+			<p>
+			  <strong>End date:</strong>
+			  <%= @booking.end_date.strftime("%d/%m/%Y") %>
+			</p>
 
-<%= link_to "Make Payment", new_booking_braintree_path(@booking) %> <br>
+			<%= link_to '<i class="fa fa-cc-paypal" aria-hidden="true"></i> Make Payment 
+	'.html_safe, new_booking_braintree_path(@booking) %> <br>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+	<%= link_to 'Edit Booking', edit_booking_path(@booking) %> |
+	<%= link_to 'Back', bookings_path %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+

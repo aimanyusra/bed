@@ -71,7 +71,7 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.save
         params[:listing_photos]['image'].each do |a|
-        @listing_photo = @listing.listing_photos.create!(:image => a, :listing_id => @listing.id)
+          @listing_photo = @listing.listing_photos.create!(:image => a, :listing_id => @listing.id)
         end
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }

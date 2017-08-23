@@ -1,6 +1,14 @@
-<h1>Editing Booking</h1>
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+			<h1>Edit Booking</h1>
+		</div>
+	</div>
 
-<%= render 'form', booking: @booking %>
+	<div class="row">
+		<%= render 'form', booking: @booking %>
+	</div>
 
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>
+	<%= link_to 'Show', @booking %> |
+	<%= link_to 'Back', bookings_path %>
+</div>

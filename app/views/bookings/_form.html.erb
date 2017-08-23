@@ -13,21 +13,25 @@
         <%= f.text_field :start_date, placeholder: 'Start Date', class: 'form-control', id:"datetimepicker3"%>
       </div>
     </div>
-
+    <br>
     <div class="row">
       <div class="col col-sm-6 col-sm-offset-3">
         <%= f.label :end_date %>
         <%= f.text_field :end_date, placeholder: 'End Date', class: 'form-control', id:"datetimepicker4" %>
       </div>
     </div>
-
+    <br>
     <div class="row">
-      <%= f.label :num_of_guests %>
-      <%= f.number_field :num_of_guests, min: 1, max: @booking.listing.max_guests %>
+      <div class="col col-sm-6 col-sm-offset-3">
+        <%= f.label :num_of_guests, 'Num of guests' %>
+        <%= f.number_field :num_of_guests, min: 1, max: @booking.listing.max_guests %>
+      </div>
     </div>
-
-    <div class="actions">
-      <%= f.submit 'Request a Booking', class: 'btn btn-default' %>
+    <br>
+    <div class="actions row">
+      <div class="col col-sm-6 col-sm-offset-3">
+        <%= f.submit 'Request Booking', class: 'btn btn-default' %>
+      </div>
     </div>
   <% end %>
 
